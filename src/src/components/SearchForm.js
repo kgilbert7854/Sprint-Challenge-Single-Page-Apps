@@ -1,29 +1,24 @@
 import React, { useState } from 'react';
 
 export default function SearchForm({ onSearch }) {
-  const [search, setSearch] = useState({name: ""});
-  
+  const [query, setQuery] = useState({
+    name: ""
+  })
   const handleInputChange = (event) => {
-    setSearch({ ...search, name: event.target.value })
+    setQuery({ ...query, name: event.target.value })
   }
 
-  
-  
   return (
-    <div className="search-form">
-      <form onSubmit={() => onSearch(search.name)}>
+    <section className="search-form">
+      <form onSubmit={() => onSearch(query)}>
         <input
-          
           onChange={handleInputChange}
-          
           placeholder="name"
-          
-          value={search.name}
-          
+          value={query.name}
           name="name"
         />
         <button type="submit">Search</button>
       </form>
-    </div>
+    </section>
   );
-};
+}
